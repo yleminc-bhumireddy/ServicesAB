@@ -13,7 +13,7 @@ public class App {
             SpringApplication.run(App.class);
         }catch(Exception e){
             e.printStackTrace();
-            log.error(e.getMessage(), e);
+//            log.error(e.getMessage(), e);
             throw new RuntimeException(e);
         }
     }
