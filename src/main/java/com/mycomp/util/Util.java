@@ -1,4 +1,4 @@
-package com.mycomp.com.mycomp.util;
+package com.mycomp.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
