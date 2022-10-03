@@ -35,5 +35,11 @@ public class ServiceA {
         return ResponseEntity.ok(responseBuilder.build());
     }
 
+    @GetMapping("/")
+    public String index(){
+        return "Welcome";
+
+    }
+
 
 }
