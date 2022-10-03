@@ -3,7 +3,7 @@ package com.mycomp.cotroller;
 
 import com.mycomp.model.PingResponse;
 import com.mycomp.util.Util;
-import lombok.extern.slf4j.Slf4j;
+//import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
