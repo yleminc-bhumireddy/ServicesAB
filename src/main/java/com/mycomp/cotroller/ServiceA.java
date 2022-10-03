@@ -26,11 +26,11 @@ public class ServiceA {
         PingResponse.PingResponseBuilder responseBuilder = PingResponse.builder()
                     .hostName(InetAddress.getLocalHost().getHostName())
                     .ipAddress(Util.getLocalIPAddress()).response(this.getClass().getCanonicalName());
-        URI uri = new URI(baseUrl);
-        ResponseEntity<PingResponse> responseB = restTemplate.getForEntity(uri, PingResponse.class);
-        if(responseB.getStatusCode().is2xxSuccessful()){
-            responseBuilder.nextResponse(responseB.getBody());
-        }
+//        URI uri = new URI(baseUrl);
+//        ResponseEntity<PingResponse> responseB = restTemplate.getForEntity(uri, PingResponse.class);
+//        if(responseB.getStatusCode().is2xxSuccessful()){
+//            responseBuilder.nextResponse(responseB.getBody());
+//        }
         log.debug("Completed ping()");
         return ResponseEntity.ok(responseBuilder.build());
     }
