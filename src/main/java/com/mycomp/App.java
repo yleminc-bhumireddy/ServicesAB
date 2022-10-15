@@ -18,3 +18,10 @@ public class App {
         }
     }
 }
+//spring.cloud.azure.active-directory.enabled=true
+//        spring.cloud.azure.active-directory.profile.tenant-id=b705d325-1562-4111-a055-b0b7dd21c002
+//        spring.cloud.azure.active-directory.credential.client-id=957543e2-580e-40e2-81f3-39f5c95a8f28
+//        spring.cloud.azure.active-directory.credential.client-secret=azb8Q~RA9X2OhKlEHT6Er2mcOgVs.keWXQ6Txatu
+//        spring.cloud.azure.active-directory.authorization-clients.graph.scopes=https://graph.microsoft.com/User.Read
+//        #spring.cloud.azure.active-directory.user-group.allowed-group-ids=Users
+//
