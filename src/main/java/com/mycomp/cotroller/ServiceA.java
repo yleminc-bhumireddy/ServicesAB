@@ -4,6 +4,7 @@ package com.mycomp.cotroller;
 import com.mycomp.model.PingResponse;
 import com.mycomp.util.Util;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
@@ -25,8 +26,11 @@ public class ServiceA {
    private WebClient webClient;
 
 
+   private RestTemplate restTemplate = new RestTemplate();
 
-    private final String baseUrl = "http://localhost:8080" +  "/pingB";
+
+   @Value("${base-url}")
+    private  String baseUrl;
 
     ServiceA(WebClient client){
         this.webClient = client;
@@ -41,12 +45,12 @@ public class ServiceA {
         responseBuilder.setHostName(InetAddress.getLocalHost().getHostName());
         responseBuilder.setIpAddress(Util.getLocalIPAddress());
         responseBuilder.setResponse(this.getClass().getCanonicalName());
-//        responseBuilder.setNextResponse(getServiceBResponse(authorizedClient));
-        responseBuilder.setNextResponse(this.webClient.get().uri("/pingB").retrieve().bodyToMono(PingResponse.class).block());
+        responseBuilder.setNextResponse(getServiceBResponse(authorizedClient));
+//        responseBuilder.setNextResponse(this.webClient.get().uri("/pingB").retrieve().bodyToMono(PingResponse.class).block());
 //        URI uri = new URI(baseUrl);
-//        ResponseEntity<PingResponse> responseB = restTemplate.getForEntity(uri, PingResponse.class);
+//        ResponseEntity<PingResponse> responseB = restTemplate.getForEntity(baseUrl, PingResponse.class);
 //        if(responseB.getStatusCode().is2xxSuccessful()){
-//            responseBuilder.nextResponse(responseB.getBody());
+//            responseBuilder.setNextResponse(responseB.getBody());
 //        }
         log.debug("Completed ping()");
         return ResponseEntity.ok(responseBuilder);
