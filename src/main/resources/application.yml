@@ -14,6 +14,7 @@ azure:
     client-id: ${AZURE_CLIENT_ID}
     client-secret: ${AZURE_CLIENT_SECRET}
     tenant-id: ${AZURE_TENANT_ID}
+    redirect-uri-template: https://myservicesab.azurewebsites.net/login/oauth2/code
     authorization-clients:
       myservicesab2:
         scopes: openid, profile, offline_access, api://5001c70e-cf59-488c-a616-dfd32356a2de/user_impersonation
