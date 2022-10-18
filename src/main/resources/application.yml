@@ -15,8 +15,8 @@ azure:
     client-secret: ${AZURE_CLIENT_SECRET}
     tenant-id: ${AZURE_TENANT_ID}
     authorization-clients:
-      myservicesapp_appregistration_app:
-        scopes: openid, profile, offline_access
+      myservicesab2:
+        scopes: openid, profile, offline_access, api://5001c70e-cf59-488c-a616-dfd32356a2de/user_impersonation
 
 server:
   port: 8080
@@ -24,3 +24,4 @@ server:
 base-url: ${BASE_URL:http://localhost:8080}
 
 #test@venkatabhumireddyyleminc.onmicrosoft.com/Ylem2022
+#https://sts.windows.net/b705d325-1562-4111-a055-b0b7dd21c002/v2.0

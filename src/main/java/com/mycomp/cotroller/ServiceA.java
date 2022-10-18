@@ -16,6 +16,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.io.IOException;
 import java.net.*;
+import java.time.Duration;
 
 import static org.springframework.security.oauth2.client.web.reactive.function.client.ServerOAuth2AuthorizedClientExchangeFilterFunction.oauth2AuthorizedClient;
 
@@ -39,7 +40,7 @@ public class ServiceA {
 
     @GetMapping("/ping")
 //    @PreAuthorize("has")
-    public ResponseEntity<PingResponse> ping(@RegisteredOAuth2AuthorizedClient("myservicesapp_appregistration_app") OAuth2AuthorizedClient authorizedClient) throws IOException, URISyntaxException {
+    public ResponseEntity<PingResponse> ping(@RegisteredOAuth2AuthorizedClient("myservicesab2") OAuth2AuthorizedClient authorizedClient) throws IOException, URISyntaxException {
         log.debug("Invoked ping()");
         PingResponse responseBuilder = new PingResponse();
         responseBuilder.setHostName(InetAddress.getLocalHost().getHostName());
@@ -60,7 +61,7 @@ public class ServiceA {
         log.debug("Reading response from ServiceB");
         PingResponse response = null;
         try {
-            response = this.webClient.get().uri("/pingB").attributes(oauth2AuthorizedClient(authorizedClient)).retrieve().bodyToMono(PingResponse.class).block();
+            response = this.webClient.get().uri("/pingB").attributes(oauth2AuthorizedClient(authorizedClient)).retrieve().bodyToMono(PingResponse.class).block(Duration.ofMinutes(1));
         }catch(Throwable e){
             log.error(e.getMessage(), e);
         }

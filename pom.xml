@@ -5,7 +5,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <description>MyServices</description>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <groupId>com.mycomp</groupId>
     <artifactId>Services</artifactId>
