@@ -14,7 +14,7 @@ public class SecurityConfig extends AADWebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
-        http.authorizeRequests((authorize) -> authorize.antMatchers("/**").authenticated())
+        http.authorizeRequests((authorize) -> authorize.antMatchers("/ping").authenticated())
                      // limit these pages to authenticated users (default: /token_details)
                 .oauth2Client(Customizer.withDefaults());                  // allow all other routes.
     }
